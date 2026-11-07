@@ -1,0 +1,7 @@
+<div class="auth-page">
+  <div class="auth-decoration"><span class="auth-kicker">A BETTER WAY TO SHOP</span><h1>Find the little things that make a big difference.</h1><p>Create your account to save favorites, build your cart, and enjoy a smoother demo shopping experience.</p><div class="auth-deco-orbit"></div><div class="auth-mini-card">♡ <span>Your favorites, all in one place</span></div></div>
+  <div class="auth-panel"><a class="auth-back" routerLink="/">← Back to home</a><div class="auth-heading"><div class="auth-icon">a<span>2</span></div><h2>Create your account</h2><p>It takes less than a minute to get started.</p></div>
+    <form (ngSubmit)="register()"><label>Full name<input type="text" name="name" [(ngModel)]="name" placeholder="Your name" autocomplete="name" required></label><label>Email address<input type="email" name="email" [(ngModel)]="email" placeholder="you@example.com" autocomplete="email" required></label><label>Password<input type="password" name="password" [(ngModel)]="password" placeholder="At least 6 characters" autocomplete="new-password" minlength="6" required></label><p *ngIf="errorMessage" class="form-error">{{errorMessage}}</p><button class="auth-submit" type="submit">Create account <span>→</span></button></form>
+    <p class="auth-switch">Already have an account? <a routerLink="/login">Sign in</a></p><p class="demo-note">Demo project: account details are stored in this browser only.</p>
+  </div>
+</div>

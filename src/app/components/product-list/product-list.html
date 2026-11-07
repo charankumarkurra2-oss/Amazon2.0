@@ -1,0 +1,29 @@
+<section class="shop-page">
+  <div class="shop-intro">
+    <div><span class="eyebrow">THE EVERYDAY EDIT</span><h1>Find your next favorite.</h1><p>Thoughtful picks for your tech, style, and space.</p></div>
+    <div class="shop-count"><strong>{{products.length}}</strong><span>products to explore</span></div>
+  </div>
+  <div class="toolbar">
+    <label class="search-box"><span>⌕</span><input type="search" placeholder="Search products, categories..." [(ngModel)]="searchText"><kbd>⌘ K</kbd></label>
+    <label class="sort-control"><span>Sort by</span><select [(ngModel)]="sortOrder"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="rating">Top rated</option></select></label>
+  </div>
+  <div class="category-row"><button *ngFor="let category of categories" [class.active]="selectedCategory === category" (click)="selectedCategory = category">{{category}}</button></div>
+  <div *ngIf="notice" class="toast" role="status">✓ {{notice}}</div>
+  <div class="products-grid" *ngIf="products.length; else noProducts">
+    <article class="product-card" *ngFor="let product of products">
+      <div class="product-photo">
+        <span *ngIf="product.badge" class="product-badge">{{product.badge}}</span>
+        <button class="wishlist-btn" [class.selected]="isWishlisted(product.id)" (click)="toggleWishlist(product)" [attr.aria-label]="isWishlisted(product.id) ? 'Remove from wishlist' : 'Add to wishlist'">{{isWishlisted(product.id) ? '♥' : '♡'}}</button>
+        <a [routerLink]="['/product', product.id]"><img [src]="product.image" [alt]="product.name" loading="lazy"></a>
+      </div>
+      <div class="product-info">
+        <span class="category-label">{{product.category}}</span>
+        <a class="product-name" [routerLink]="['/product', product.id]">{{product.name}}</a>
+        <p class="description">{{product.description}}</p>
+        <div class="rating-line"><span>★</span> {{product.rating}} <small>(customer favorite)</small></div>
+        <div class="product-bottom"><strong>₹{{product.price | number}}</strong><button (click)="addToCart(product)">Add to cart <span>+</span></button></div>
+      </div>
+    </article>
+  </div>
+  <ng-template #noProducts><div class="empty-results"><span>⌕</span><h2>No products found</h2><p>Try a different search or select another category.</p><button (click)="searchText=''; selectedCategory='All'">Clear filters</button></div></ng-template>
+</section>

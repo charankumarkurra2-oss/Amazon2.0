@@ -1,0 +1,14 @@
+<section class="cart-page">
+  <div class="cart-heading"><div><span class="eyebrow">READY WHEN YOU ARE</span><h1>Your shopping bag</h1><p>Review your picks before checkout.</p></div><a routerLink="/products">← Continue shopping</a></div>
+  <div class="cart-layout" *ngIf="items.length; else emptyCart">
+    <div class="cart-items">
+      <article class="cart-item" *ngFor="let item of items">
+        <div class="item-image"><img [src]="item.image" [alt]="item.name"></div>
+        <div class="item-details"><span>{{item.category}}</span><h2>{{item.name}}</h2><p>{{item.description}}</p><strong>₹{{item.price | number}}</strong><div class="quantity-control"><button (click)="changeQuantity(item.id, -1)" aria-label="Decrease quantity">−</button><span>{{item.quantity}}</span><button (click)="changeQuantity(item.id, 1)" aria-label="Increase quantity">+</button></div></div>
+        <div class="item-side"><strong>₹{{item.price * item.quantity | number}}</strong><button class="remove-btn" (click)="remove(item.id)">Remove</button></div>
+      </article>
+    </div>
+    <aside class="order-summary"><h2>Order summary</h2><div><span>Subtotal</span><strong>₹{{subtotal | number}}</strong></div><div><span>Delivery</span><strong>{{delivery === 0 ? 'FREE' : ('₹' + delivery)}}</strong></div><p class="delivery-note" *ngIf="subtotal > 0 && subtotal < 999">Add ₹{{999 - subtotal | number}} more for free delivery.</p><div class="summary-total"><span>Total</span><strong>₹{{total | number}}</strong></div><button class="checkout-btn" (click)="checkout()">Continue to checkout <span>→</span></button><p class="secure-note">✓ Simple, secure demo checkout</p></aside>
+  </div>
+  <ng-template #emptyCart><div class="empty-cart"><span>🛍</span><h2>Your bag is taking a little break</h2><p>When you find something you love, add it here.</p><a routerLink="/products">Explore products →</a></div></ng-template>
+</section>

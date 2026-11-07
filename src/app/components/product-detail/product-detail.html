@@ -1,0 +1,7 @@
+<section class="detail-page" *ngIf="product as item">
+  <a class="back-link" routerLink="/products">← Back to all products</a>
+  <div class="detail-card">
+    <div class="detail-image"><span *ngIf="item.badge" class="detail-badge">{{item.badge}}</span><img [src]="item.image" [alt]="item.name"></div>
+    <div class="detail-copy"><span class="category">{{item.category}}</span><h1>{{item.name}}</h1><div class="rating">★ {{item.rating}} <span>· Customer favorite</span></div><strong class="price">₹{{item.price | number}}</strong><p class="description">{{item.description}}</p><ul><li>Thoughtfully selected everyday essential</li><li>Easy-to-browse product details</li><li>Included in your cart summary when added</li></ul><div class="detail-actions"><button class="add" (click)="addToCart()">{{added ? 'Added to cart ✓' : 'Add to cart +'}}</button><button class="save" (click)="toggleWishlist()">{{isWishlisted ? '♥ Saved' : '♡ Save for later'}}</button></div><p *ngIf="added" class="added-note">Added to your cart. <a routerLink="/cart">View cart →</a></p></div>
+  </div>
+</section>

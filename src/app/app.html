@@ -1,0 +1,20 @@
+<header class="site-header">
+  <a class="brand" routerLink="/" aria-label="Amazon 2.0 home">
+    <span class="brand-mark">a<span>2</span></span>
+    <span class="brand-name">amazon<span>2.0</span><small>shop smarter every day</small></span>
+  </a>
+  <nav class="nav-links" aria-label="Main navigation">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+    <a routerLink="/products" routerLinkActive="active">Shop</a>
+    <a routerLink="/wishlist" routerLinkActive="active">Wishlist</a>
+    <a class="cart-link" routerLink="/cart" routerLinkActive="active">Cart <span class="cart-badge">{{cartCount}}</span></a>
+    <a *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active">Login</a>
+    <a *ngIf="!isLoggedIn" routerLink="/signup" class="signup-nav">Create account</a>
+    <button *ngIf="isLoggedIn" class="logout-btn" (click)="logout()">Logout</button>
+  </nav>
+</header>
+<main><router-outlet></router-outlet></main>
+<footer class="site-footer">
+  <div><strong>amazon2.0</strong><p>Everyday finds. Better shopping.</p></div>
+  <span>Demo shopping experience · Built with Angular</span>
+</footer>

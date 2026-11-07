@@ -1,0 +1,7 @@
+<div class="auth-page">
+  <div class="auth-decoration"><span class="auth-kicker">WELCOME BACK</span><h1>Your next great find is just around the corner.</h1><p>Sign in to explore products, keep your wishlist, and pick up where you left off.</p><div class="auth-deco-orbit"></div><div class="auth-mini-card">✦ <span>Everyday favorites, all in one place</span></div></div>
+  <div class="auth-panel"><a class="auth-back" routerLink="/">← Back to home</a><div class="auth-heading"><div class="auth-icon">a<span>2</span></div><h2>Welcome back</h2><p>Enter your details to sign in.</p></div>
+    <form (ngSubmit)="login()"><label>Email address<input type="email" name="email" [(ngModel)]="email" placeholder="you@example.com" autocomplete="email" required></label><label>Password<input type="password" name="password" [(ngModel)]="password" placeholder="Enter your password" autocomplete="current-password" required></label><p *ngIf="errorMessage" class="form-error">{{errorMessage}}</p><button class="auth-submit" type="submit">Sign in <span>→</span></button></form>
+    <p class="auth-switch">New to Amazon 2.0? <a routerLink="/signup">Create an account</a></p><p class="demo-note">Demo project: account details are stored in this browser only.</p>
+  </div>
+</div>

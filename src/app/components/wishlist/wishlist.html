@@ -1,0 +1,10 @@
+<section class="wishlist-page">
+  <div class="page-heading"><span class="eyebrow">YOUR PERSONAL COLLECTION</span><h1>Saved for later <span>♡</span></h1><p>Keep the things you love in one easy-to-find place.</p></div>
+  <div *ngIf="items.length; else emptyWishlist" class="wishlist-grid">
+    <article class="wishlist-card" *ngFor="let item of items">
+      <a class="wishlist-image" routerLink="/products"><img [src]="item.image" [alt]="item.name"></a>
+      <div class="wishlist-info"><span>{{item.category}}</span><h2>{{item.name}}</h2><p>{{item.description}}</p><strong>₹{{item.price | number}}</strong><div class="wishlist-actions"><button class="add-btn" (click)="addToCart(item)">Add to cart +</button><button class="remove-btn" (click)="remove(item.id)">Remove</button></div></div>
+    </article>
+  </div>
+  <ng-template #emptyWishlist><div class="empty-wishlist"><span>♡</span><h2>Your wishlist is waiting</h2><p>Tap the heart on any product to save it here.</p><a routerLink="/products">Explore products →</a></div></ng-template>
+</section>

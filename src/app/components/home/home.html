@@ -1,0 +1,35 @@
+<section class="hero">
+  <div class="hero-content">
+    <span class="eyebrow"><span class="eyebrow-dot"></span> YOUR EVERYDAY MARKETPLACE</span>
+    <h1>Good finds.<br><em>Great feelings.</em></h1>
+    <p>Discover the little upgrades that make everyday life better. Explore tech, style, and home essentials in one place.</p>
+    <div class="hero-actions">
+      <button class="primary-btn" (click)="shopNow()">Explore products <span>→</span></button>
+      <a class="text-link" routerLink="/products">Browse the collection</a>
+    </div>
+    <div class="hero-trust"><span>★ ★ ★ ★ ★</span><p><strong>4.8/5</strong> customer-inspired demo experience</p></div>
+  </div>
+  <div class="hero-art" aria-label="Featured shopping categories">
+    <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+    <div class="art-card art-phone"><img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=85" alt="Smartphone"></div>
+    <div class="art-card art-shoe"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=85" alt="Red running shoe"></div>
+    <div class="art-card art-watch"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=85" alt="Smart watch"></div>
+    <div class="floating-note"><span class="note-icon">✦</span><div><strong>Picked for you</strong><small>Everyday favorites</small></div></div>
+  </div>
+</section>
+<section class="benefits">
+  <div><span class="benefit-icon">↗</span><p><strong>Handpicked finds</strong><small>Useful things, all in one place</small></p></div>
+  <div><span class="benefit-icon">♡</span><p><strong>Save your favorites</strong><small>Keep your wishlist close</small></p></div>
+  <div><span class="benefit-icon">✓</span><p><strong>Simple checkout</strong><small>A smoother demo shopping flow</small></p></div>
+</section>
+<section class="featured-section">
+  <div class="section-heading"><div><span class="eyebrow">A FEW GOOD PICKS</span><h2>Popular right now</h2><p>Start with customer-favorite essentials.</p></div><a routerLink="/products">View all products <span>→</span></a></div>
+  <div class="featured-grid">
+    <article class="featured-card" *ngFor="let product of featured">
+      <button class="heart-btn" [class.selected]="isWishlisted(product.id)" (click)="toggleWishlist(product)" [attr.aria-label]="isWishlisted(product.id) ? 'Remove from wishlist' : 'Add to wishlist'">{{isWishlisted(product.id) ? '♥' : '♡'}}</button>
+      <a class="featured-image" routerLink="/products"><img [src]="product.image" [alt]="product.name" loading="lazy"></a>
+      <div class="featured-info"><span class="product-category">{{product.category}}</span><h3>{{product.name}}</h3><div class="rating">★ <span>{{product.rating}}</span> <small>· popular pick</small></div><div class="price-row"><strong>₹{{product.price | number}}</strong><button (click)="addToCart(product)">Add to cart +</button></div></div>
+    </article>
+  </div>
+</section>
+<section class="bottom-cta"><div><span class="eyebrow">YOUR NEXT FAVORITE IS HERE</span><h2>Make room for something good.</h2><p>Explore the collection and find something that fits your everyday.</p></div><button class="primary-btn" (click)="shopNow()">Start shopping <span>→</span></button></section>

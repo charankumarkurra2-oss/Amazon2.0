@@ -1,0 +1,36 @@
+.logout-container{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#f1f3f6;
+}
+
+.logout-box{
+  width:500px;
+  background:white;
+  padding:40px;
+  text-align:center;
+  border-radius:15px;
+  box-shadow:0 0 20px rgba(0,0,0,0.1);
+}
+
+.logout-box h1{
+  color:green;
+  margin-bottom:20px;
+}
+
+.logout-box p{
+  font-size:18px;
+  margin-bottom:25px;
+}
+
+.logout-box button{
+  background:#2874f0;
+  color:white;
+  border:none;
+  padding:12px 25px;
+  border-radius:5px;
+  font-size:16px;
+  cursor:pointer;
+}
