@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Amazon 2.0 — Angular Shopping Demo
 
 A responsive Angular standalone-components e-commerce demo with a modern storefront UI.
@@ -27,3 +28,6 @@ If Angular reports a dependency or cache issue, stop the server and run:
 `npm install`
 then
 `npm start`
+=======
+# Amazon2.0
+>>>>>>> 9d8e93dd9c924d1383fc0be9f09e9e2e1c127322
